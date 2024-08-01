@@ -2,10 +2,9 @@
 name: raina
 recipe: lamp
 config:
-  webroot: .
   php: "8.3"
-  database: disabled
 
 services:
   appserver:
     scanner: false
+  database: disabled
