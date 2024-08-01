@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
 		{% if meta.description %}
 			<meta name="description" content="{{ meta.description|striptags }}"/>
@@ -15,8 +15,9 @@
 		{% if current_page %}
 			<link rel="canonical" href="{{ current_page.url }}"/>
 		{% endif %}
-		<link rel="stylesheet" href="{{ theme_url }}/css/index.css"/>
-		<script defer src="{{ theme_url }}/js/main.js"></script>
+							         
+		<link rel="stylesheet" href="{{ ("themes/" ~ config.theme ~ "/css/index.css")|asset }}"/>
+		<script defer src="{{ ("themes/" ~ config.theme ~ "/js/index.js")|asset }}"></script>
 	</head>
 	<body{% if config.theme_config.widescreen %} class="widescreen"{% endif %}>
 
@@ -32,7 +33,16 @@
 				{% endif %}
 				<div id="title"{{ pages["_meta"].meta.tagline ? ' class="tagline"' }}>
 					<a href="{{ "index"|link }}">
-						<h1>{{ site_title }}</h1>
+						<h1>
+							<svg viewbox="0 0 19 5">
+								<title>{{ site_title }}</title>
+								<g  transform="translate(0 0)">
+									<rect width="1" height="1" x="0"/><rect width="1" height="1" x="1"/><rect width="1" height="1" x="5"/><rect width="1" height="1" x="6"/><rect width="1" height="1" x="8"/><rect width="1" height="1" x="10"/><rect width="1" height="1" x="11"/><rect width="1" height="1" x="15"/><rect width="1" height="1" x="16"/>
+									<rect width="1" height="1" y="1" x="0"/><rect width="1" height="1" y="1" x="2"/><rect width="1" height="1" y="1" x="4"/><rect width="1" height="1" y="1" x="6"/><rect width="1" height="1" y="1" x="10"/><rect width="1" height="1" y="1" x="12"/><rect width="1" height="1" y="1" x="14"/><rect width="1" height="1" y="1" x="16"/>
+									<rect width="1" height="1" y="2" x="0"/><rect width="1" height="1" y="2" x="4"/><rect width="1" height="1" y="2" x="5"/><rect width="1" height="1" y="2" x="6"/><rect width="1" height="1" y="2" x="8"/><rect width="1" height="1" y="2" x="10"/><rect width="1" height="1" y="2" x="12"/><rect width="1" height="1" y="2" x="14"/><rect width="1" height="1" y="2" x="15"/><rect width="1" height="1" y="2" x="16"/>
+								</g>
+							</svg>
+						</h1>
 						{{ pages["_meta"].meta.tagline|markdown }}
 					</a>
 				</div>

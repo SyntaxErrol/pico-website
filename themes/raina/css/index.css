@@ -20,3 +20,7 @@ main {
 
 footer {
 }
+
+rect {
+	transition: translate .2s;
+}
